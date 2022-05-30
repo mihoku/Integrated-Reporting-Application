@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="iradbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iradb.dbo.v_ira_jenistpu_pkpt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_ira_jenistpu_pkpt">
+          <Key>
+            <PropertyRef Name="JenisTpuID" />
+            <PropertyRef Name="NamaJenisTpu" />
+          </Key>
+          <Property Name="JenisTpuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamaJenisTpu" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iradb.dbo.v_ira_tpu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_ira_tpu">
+          <Key>
+            <PropertyRef Name="TpuID" />
+            <PropertyRef Name="NamaTpu" />
+            <PropertyRef Name="JenisTpuID" />
+            <PropertyRef Name="UnitID" />
+            <PropertyRef Name="TahunAnggaran" />
+          </Key>
+          <Property Name="TpuID" Type="int" Nullable="false" />
+          <Property Name="NamaTpu" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="JenisTpuID" Type="int" Nullable="false" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="TahunAnggaran" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'iradb.dbo.v_ira_unit_pkpt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_ira_unit_pkpt">
+          <Key>
+            <PropertyRef Name="UnitID" />
+            <PropertyRef Name="NamaUnit" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NamaUnit" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="iradbModelStoreContainer">
+          <EntitySet Name="v_ira_jenistpu_pkpt" EntityType="Self.v_ira_jenistpu_pkpt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_ira_jenistpu_pkpt].[JenisTpuID] AS [JenisTpuID], 
+    [v_ira_jenistpu_pkpt].[NamaJenisTpu] AS [NamaJenisTpu]
+    FROM [dbo].[v_ira_jenistpu_pkpt] AS [v_ira_jenistpu_pkpt]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ira_tpu" EntityType="Self.v_ira_tpu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_ira_tpu].[TpuID] AS [TpuID], 
+    [v_ira_tpu].[NamaTpu] AS [NamaTpu], 
+    [v_ira_tpu].[JenisTpuID] AS [JenisTpuID], 
+    [v_ira_tpu].[UnitID] AS [UnitID], 
+    [v_ira_tpu].[TahunAnggaran] AS [TahunAnggaran]
+    FROM [dbo].[v_ira_tpu] AS [v_ira_tpu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_ira_unit_pkpt" EntityType="Self.v_ira_unit_pkpt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_ira_unit_pkpt].[UnitID] AS [UnitID], 
+    [v_ira_unit_pkpt].[NamaUnit] AS [NamaUnit]
+    FROM [dbo].[v_ira_unit_pkpt] AS [v_ira_unit_pkpt]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iradbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="v_ira_jenistpu_pkpt">
+          <Key>
+            <PropertyRef Name="JenisTpuID" />
+            <PropertyRef Name="NamaJenisTpu" />
+          </Key>
+          <Property Name="JenisTpuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamaJenisTpu" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_ira_tpu">
+          <Key>
+            <PropertyRef Name="TpuID" />
+            <PropertyRef Name="NamaTpu" />
+            <PropertyRef Name="JenisTpuID" />
+            <PropertyRef Name="UnitID" />
+            <PropertyRef Name="TahunAnggaran" />
+          </Key>
+          <Property Name="TpuID" Type="Int32" Nullable="false" />
+          <Property Name="NamaTpu" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JenisTpuID" Type="Int32" Nullable="false" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <Property Name="TahunAnggaran" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_ira_unit_pkpt">
+          <Key>
+            <PropertyRef Name="UnitID" />
+            <PropertyRef Name="NamaUnit" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamaUnit" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ViewTPUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="v_ira_jenistpu_pkpt" EntityType="Self.v_ira_jenistpu_pkpt" />
+          <EntitySet Name="v_ira_tpu" EntityType="Self.v_ira_tpu" />
+          <EntitySet Name="v_ira_unit_pkpt" EntityType="Self.v_ira_unit_pkpt" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iradbModelStoreContainer" CdmEntityContainer="ViewTPUEntities">
+          <EntitySetMapping Name="v_ira_jenistpu_pkpt">
+            <EntityTypeMapping TypeName="iradbModel.v_ira_jenistpu_pkpt">
+              <MappingFragment StoreEntitySet="v_ira_jenistpu_pkpt">
+                <ScalarProperty Name="JenisTpuID" ColumnName="JenisTpuID" />
+                <ScalarProperty Name="NamaJenisTpu" ColumnName="NamaJenisTpu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ira_tpu">
+            <EntityTypeMapping TypeName="iradbModel.v_ira_tpu">
+              <MappingFragment StoreEntitySet="v_ira_tpu">
+                <ScalarProperty Name="TpuID" ColumnName="TpuID" />
+                <ScalarProperty Name="NamaTpu" ColumnName="NamaTpu" />
+                <ScalarProperty Name="JenisTpuID" ColumnName="JenisTpuID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="TahunAnggaran" ColumnName="TahunAnggaran" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ira_unit_pkpt">
+            <EntityTypeMapping TypeName="iradbModel.v_ira_unit_pkpt">
+              <MappingFragment StoreEntitySet="v_ira_unit_pkpt">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="NamaUnit" ColumnName="NamaUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
