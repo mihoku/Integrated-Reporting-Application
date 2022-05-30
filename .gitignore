@@ -2,6 +2,11 @@ obj/
 bin/
 Properties/
 App_Data/
+App_Browsers/
+Migrations/
+MigrationsApplicationContext/
+ClearScript.V8/
+*.html
 *.config
 *.csproj
 *.user
